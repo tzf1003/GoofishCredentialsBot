@@ -78,6 +78,7 @@ export const ENV = {
 // API 服务器配置
 export const SERVER_CONFIG = {
     PORT: 8888,
+    HOST: '0.0.0.0',
     STATIC_DIR: 'public'
 }
 

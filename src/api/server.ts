@@ -144,8 +144,12 @@ function setupStaticFiles(app: Hono) {
 export function startServer(port = SERVER_CONFIG.PORT) {
     const app = createApp()
 
-    const server = serve({ fetch: app.fetch, port }, () => {
-        logger.info(`服务器启动在端口 ${port}`)
+    const server = serve({
+        fetch: app.fetch,
+        port,
+        hostname: SERVER_CONFIG.HOST
+    }, () => {
+        logger.info(`服务器启动在 ${SERVER_CONFIG.HOST}:${port}`)
         logger.info(`访问 http://localhost:${port} 打开管理面板`)
     })
 
